@@ -1,25 +1,19 @@
 #!/bin/bash
 
-# VM 配置
+# VM Configuration
 VM_NAME="ubuntu-sched-ext"
 ISO_PATH="$HOME/qemu-vms/ubuntu-sched-ext/iso/ubuntu-25.10-live-server-amd64.iso"
 DISK_PATH="$HOME/qemu-vms/ubuntu-sched-ext/disks/ubuntu-sched-ext.qcow2"
 
-# 資源配置
-VCPUS=4          # 虛擬 CPU 核心數（根據你的 server 調整）
-MEMORY=8192      # RAM (MB)，8GB
-VNC_PORT=5900    # VNC 端口
-
-# 網路配置
-NET_TYPE="user"  # user mode networking (NAT)
-SSH_PORT=2222    # Host 的 2222 port 轉發到 VM 的 22 port
+# Resources
+VCPUS=4
+MEMORY=8192
+VNC_PORT=5900
+SSH_PORT=2222
 
 echo "Starting VM: $VM_NAME"
-echo "VCPUs: $VCPUS"
-echo "Memory: ${MEMORY}MB"
-echo "VNC: localhost:$VNC_PORT (display :0)"
-echo "SSH: ssh -p $SSH_PORT username@localhost"
-echo ""
+echo "VNC: localhost:$VNC_PORT"
+echo "SSH: ssh -p $SSH_PORT user@localhost"
 
 qemu-system-x86_64 \
     -name "$VM_NAME" \
@@ -36,3 +30,5 @@ qemu-system-x86_64 \
     -display none \
     -daemonize \
     -pidfile /tmp/vm-$VM_NAME.pid
+
+echo "✓ VM started"
