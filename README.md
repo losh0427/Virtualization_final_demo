@@ -2,22 +2,22 @@
 
 A hands-on introduction to Linux sched_ext (eBPF-based scheduler framework) with practical demos.
 
-📊 [Presentation Slides](https://docs.google.com/presentation/d/1wZ7rMCfYjCfGQ_fT8Zfto0Zp4kbSHjnynjaBrgotREQ/edit?usp=sharing)
+[Presentation Slides](https://docs.google.com/presentation/d/1wZ7rMCfYjCfGQ_fT8Zfto0Zp4kbSHjnynjaBrgotREQ/edit?usp=sharing)
 
 ---
 
-## 📋 Table of Contents
+## Outline
 
-- [Environment Setup](#environment-setup)
-- [Demo 1-1: Performance Comparison](#demo-1-1-performance-comparison)
-- [Demo 1-2: Official Video Reference](#demo-1-2-official-video-reference)
-- [Demo 2: Failsafe Verification](#demo-2-failsafe-verification)
-- [Repository Structure](#repository-structure)
-- [References](#references)
+- Environment Setup
+- Demo 1-1: Performance Comparison
+- Demo 1-2: Official Video Reference
+- Demo 2: Failsafe Verification
+- Repository Structure
+- References
 
 ---
 
-## 🛠️ Environment Setup
+## Environment Setup
 
 ### Prerequisites
 
@@ -85,7 +85,7 @@ ls -lh ~/scx/build/scheds/c/scx_flatcg
 
 ---
 
-## 📊 Demo 1-1: Performance Comparison
+## Demo 1-1: Performance Comparison
 
 ### Objective
 
@@ -135,15 +135,9 @@ bash ../analyze_results.sh
 └─────────────┴──────────────┴──────────────┘
 ```
 
-### Key Findings
-
-- **scx_flatcg**: Best throughput (+3%) with 54% fewer context switches
-- **scx_simple**: +2% throughput with 47% fewer context switches
-- Demonstrates that customizable schedulers can outperform general-purpose schedulers in specific workloads
-
 ---
 
-## 🎥 Demo 1-2: Official Video Reference
+## Demo 1-2: Official Video Reference
 
 Watch the official sched_ext demonstration video:
 
@@ -151,23 +145,12 @@ Watch the official sched_ext demonstration video:
 
 ---
 
-## 🛡️ Demo 2: Failsafe Verification
+## Demo 2: Failsafe Verification
 
 ### Objective
 
 Verify sched_ext's Failsafe mechanism that prevents CrowdStrike-style system crashes.
 
-### Background
-
-**CrowdStrike Incident (2024.07.19)**:
-- 8.5 million Windows systems crashed
-- Required physical access to each machine
-- Days to fully recover
-
-**sched_ext Failsafe**:
-- Automatic recovery from scheduler crashes
-- Falls back to EEVDF safely
-- Recovery time: < 1 second
 
 ### Execution Steps
 
@@ -204,14 +187,14 @@ stress-ng --cpu 2 --timeout 5s --quiet
 
 ### Result
 
-✅ **System automatically recovered within 1 second**
+ **System automatically recovered within 1 second**
 - No system crash
 - No manual intervention needed
 - Workloads continue running
 
 ---
 
-## 📁 Repository Structure
+## Repository Structure
 
 ```
 sched_ext-demo/
@@ -224,7 +207,7 @@ sched_ext-demo/
 
 ---
 
-## 📚 References
+## References
 
 ### Official Resources
 
